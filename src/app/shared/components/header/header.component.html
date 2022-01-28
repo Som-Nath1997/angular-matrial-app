@@ -1,0 +1,49 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="Sidenav_opened = !Sidenav_opened">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">CARROTRULE</h1>
+  <span class="spacer"></span>
+  <mat-icon class="question-icon" matTooltip="Upload excel containing the data of users"
+  aria-label="Button that displays a tooltip when focused or hovered over" >help_outline</mat-icon>
+  
+  <mat-icon class="user-icon">account_circle</mat-icon>
+  <span class="username">My Account</span>
+   
+</mat-toolbar>
+<mat-sidenav-container style="height:85vh; width: 100%;" >
+  <mat-sidenav style="background: #368af0;;
+  color: #fff;" [(opened)]="Sidenav_opened" #sidenav mode="side">
+    <mat-nav-list *ngFor="let item of navItems">
+      <mat-list-item  role="link" #links routerLinkActive="active-link" routerLink="{{item.routerLink}}" style="font-size: 14px; width: 100%;  color: #fff;"> <mat-icon class="icons" style="font-size: 14px;"> {{item.icon}}</mat-icon>{{item.text}} </mat-list-item>
+      
+    </mat-nav-list>
+    <mat-accordion  mat-tab-link routerLink="/setup"  style="background-color: #368af0">
+      
+    
+      <mat-expansion-panel style= "background-color: #368af0" (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+                           
+        <mat-expansion-panel-header>
+         
+          <mat-panel-description style="background-color: #368af0; color: #fff;" >
+            <mat-icon class="drop" style="font-size: 14px; color: #fff; ">perm_data_setting</mat-icon>  Setup
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <span >Authoristion</span>
+        <br>
+        <span style="color: #fff;" >Communication</span>
+      </mat-expansion-panel>
+    </mat-accordion>
+    
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <div style="margin: 10px">
+       <!-- <app-setup></app-setup> -->
+      <router-outlet></router-outlet>
+    <!-- <app-message></app-message> -->
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

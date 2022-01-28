@@ -1,0 +1,127 @@
+<button
+  mat-button
+  style="
+    color: rgb(9, 9, 26);
+    padding-right: 9rem;
+    margin: 1.5rem;
+    padding-left: 8rem;
+    border-width: revert;
+    border-style: ridge;
+  "
+  color="accent;"
+>
+  Users
+</button>
+<button
+  mat-button
+  style="
+    color: rgb(9, 9, 26);
+    background-color: #368af0;
+
+    padding-right: 9rem;
+    margin: 1.5rem;
+    padding-left: 8rem;
+  "
+  color="accent;"
+>
+  Roles & Permissions
+</button>
+<button
+  mat-button
+  style="
+    color: rgb(10, 10, 31);
+    padding-right: 9rem;
+    border-width: revert;
+    border-style: ridge;
+    margin: 2rem;
+    padding-left: 8rem;
+  "
+  color="accent;"
+>
+  Groups
+</button>
+
+<mat-divider style="margin-top: 10px"></mat-divider>
+<mat-divider></mat-divider>
+
+
+<div>
+  <mat-form-field  style="margin-left: 15px;">
+    <mat-label></mat-label>
+    <select matNativeControl
+      >
+      <option value=""></option>
+      <option ></option>
+    </select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-flat-button color="primary" >Reset</button>
+</div>
+
+ <table
+  mat-table
+  [dataSource]="dataSource"
+  style="margin-top: 1rem"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="role">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      Role name
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.role}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+    Edit
+      
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.edit}}
+      <mat-icon class="blue">edit</mat-icon>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+    Delete
+      
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.delete}}
+      <mat-icon class="red">delete_forever</mat-icon>
+
+     
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="copy">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+    Copy
+      
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.copy}}
+      <mat-icon class="blue">file_copy</mat-icon>
+    </td>
+  </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>

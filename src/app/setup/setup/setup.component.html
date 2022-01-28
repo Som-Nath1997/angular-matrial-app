@@ -1,0 +1,189 @@
+
+<button
+  mat-button
+  style="
+    color: rgb(9, 9, 26);
+    background-color: #368af0;
+
+    padding-right: 9rem;
+    margin: 1.5rem;
+    padding-left: 8rem;
+  "
+  color="accent;"
+>
+  Users
+</button>
+<button
+  mat-button
+  style="
+    color: rgb(8, 8, 17);
+    padding-right: 9rem;
+    border-width: revert;
+    border-style: ridge;
+
+    margin: 1.5rem;
+    padding-left: 8rem;
+  "
+  color="accent;"
+>
+  Roles & Permissions
+</button>
+<button
+  mat-button
+  style="
+    color: rgb(10, 10, 31);
+    padding-right: 9rem;
+    border-width: revert;
+    border-style: ridge;
+    margin: 2rem;
+    padding-left: 8rem;
+  "
+  color="accent;"
+>
+  Groups
+</button>
+
+<mat-divider></mat-divider>
+<div class="searchbar" style="margin-bottom: 10px">
+  <label style="font-size: 14px; font-weight: 500">User :</label>
+
+  <mat-form-field style="padding: 1rem">
+    <input
+      type="text"
+      autocomplete="off"
+      style="margin-right: 3rem"
+      matInput
+      placeholder="Search Login"
+    />
+  </mat-form-field>
+</div>
+
+<div
+  class="users"
+  style="display: flex; justify-content: flex-end; margin-top: -65px"
+>
+ 
+  <div>
+    <mat-icon (click)="openDialog()" style="color: green; margin: 0.6rem"
+      >add_circle_outline</mat-icon
+    >
+  </div>
+  <label class="use" style="margin-top: 10px">Users</label>
+</div>
+
+<mat-divider style="margin-top: 2rem"></mat-divider>
+<!-- <mat-form-field appearance="outline">
+    <mat-icon  matPrefix>search</mat-icon>
+    <input matInput type="search" placeholder="search here" class="search-input">
+  </mat-form-field>
+  <div> -->
+<!-- <button mat-raised-button style=" margin: .8rem;" >Inbox</button>
+      <button mat-raised-button style=" margin: .8rem;" >Initiated</button>
+      <button mat-raised-button style=" margin: .8rem;" >Approved</button>
+      <button mat-raised-button style=" margin: .8rem" >Rejected</button>
+      <button mat-raised-button color="primary" style=" margin: .8rem;" >All</button>
+      <div class="columns">
+        <button mat-raised-button color="accent">Add</button>
+        <button mat-raised-button color="primary"  style=" margin: .8rem;" >Columns</button>
+      </div>
+    </div> -->
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  style="margin-top: 1rem"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="Title">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      Login Email
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.email }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="started by ">
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.email }}
+    </td>
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      First name
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.name }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="creation date">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      Last name
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.email }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="last-updates">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      Creation at
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      {{ element.website }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="last-update">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      Last connection
+    </th>
+    <td
+      mat-cell
+      style="background-color: #cfe2ff"
+      *matCellDef="let element"
+    ></td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th
+      mat-header-cell
+      style="font-size: 16px; font-weight: 600"
+      *matHeaderCellDef
+    >
+      Edit/delete
+    </th>
+    <td mat-cell style="background-color: #cfe2ff" *matCellDef="let element">
+      <mat-icon class="blue">edit</mat-icon>
+      <mat-icon class="red">delete</mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+</table>
+
+<mat-divider style="margin-top: 3rem ;" ></mat-divider>
+
+
+<div class="button" style="display: flex; justify-content: flex-end;">
+  <button  mat-raised-button role="link" #links routerLinkActive="active-link" routerLink="/message" style="margin: .6rem;" >Back</button>
+  <button  mat-raised-button role="link" #links routerLinkActive="active-link" routerLink="/setup/form" style="margin: .6rem;" color="primary">Next</button>
+</div>

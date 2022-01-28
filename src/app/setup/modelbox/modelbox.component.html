@@ -1,0 +1,94 @@
+<div  class="dialog-title">
+  <label style="font-size: 25px; font-weight: 500">Add User </label>
+  <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+  </button>
+</div>
+<mat-divider></mat-divider>
+<mat-card-content>
+  <form [formGroup]="myForm" novalidate  (ngSubmit)="onSubmit()" style="margin-top: 10px"  >
+    <mat-form-field style="margin: 15px">
+      <mat-label>First Name</mat-label>
+      <input matInput type="text" placeholder="Enter Name" formControlName="myName" id="myName">
+      <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+      <mat-error *ngIf="myError('myName', 'required')">Name is required</mat-error>
+      <mat-error *ngIf="myError('myName', 'maxlength')">Limit exceed</mat-error>
+    </mat-form-field>
+    <mat-form-field style="margin: 15px" class="">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="text" placeholder="Last Name" formControlName="lastname" id="lastname">
+      <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+      <mat-error *ngIf="myError('lastname', 'required')"> Last Name is required</mat-error>
+      <mat-error *ngIf="myError('lastname', 'maxlength')">Limit exceed</mat-error>
+    </mat-form-field>
+    <mat-form-field style="margin: 15px" class="">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="E-mail" formControlName="email" id="email">
+      <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+      <mat-error *ngIf="myError('email', 'required')"> E-mail is required</mat-error>
+      <mat-error *ngIf="myError('email', 'maxlength')">Limit exceed</mat-error>
+    </mat-form-field>
+    <mat-form-field style="margin: 15px" class="">
+      <mat-label> Confirm Email</mat-label>
+      <input matInput type="text" placeholder="E-mail" formControlName="cmail" id="cmail">
+      <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+      <mat-error *ngIf="myError('cmail', 'required')"> Please  Conifrm your E-mail</mat-error>
+      <mat-error *ngIf="myError('cmail', 'maxlength')">Limit exceed</mat-error>
+    </mat-form-field>
+    <mat-form-field style="margin: 15px" class="">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password"
+        name="password"
+        formControlName="password" id="password"
+      />
+      <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+      <mat-error *ngIf="myError('password', 'required')"> Password is required</mat-error>
+      <mat-error *ngIf="myError('password', 'maxlength')">Limit exceed</mat-error>
+      <mat-icon matSuffix (click)="togglePasswordVisibility()">
+        {{ showPassword ? "visibility_off" : "visibility" }}</mat-icon
+      >
+    </mat-form-field>
+    <mat-form-field style="margin: 15px" class="">
+      <mat-label>Confirm Password</mat-label>
+      <input
+        matInput
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder=" Confirm Password"
+        name="Confirm password"
+        formControlName="cpassword" id="cpassword"
+
+      />
+      <mat-hint align="end">Not more then 20 characters long.</mat-hint>
+      <mat-error *ngIf="myError('cpassword', 'required')"> Please confrim your Password</mat-error>
+      <mat-error *ngIf="myError('cpassword', 'maxlength')">Limit exceed</mat-error>
+      <mat-icon matSuffix (click)="togglePasswordVisibility()">{{
+        showPassword ? "visibility_off" : "visibility"
+      }}</mat-icon>
+    </mat-form-field>
+    <mat-checkbox  formControlName="checkbox" color="primary" style="color: #8e8e8e; font-weight: 500; padding: 0.5rem"
+    required >Generate Password</mat-checkbox
+    >
+    <br />
+    <mat-checkbox color="primary" style="color: #8e8e8e; font-weight: 500; padding: 0.5rem">
+      Must change password at next login</mat-checkbox
+    >
+    <mat-card-actions style="display: flex; justify-content: center">
+      <button mat-raised-button [mat-dialog-close]="true"  style="margin: 0.5rem">
+        Cancel 
+      </button>
+      <button
+      [disabled]="myForm.invalid"
+        mat-raised-button
+        type="submit"
+        style="margin: 0.5rem"
+        color="primary">
+        Save
+      </button>
+
+  
+    </mat-card-actions>
+  </form>
+</mat-card-content>

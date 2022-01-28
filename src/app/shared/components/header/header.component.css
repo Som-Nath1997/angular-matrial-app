@@ -1,0 +1,32 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  .question-icon{
+         position: absolute;
+    right: 190px;
+  }
+  .user-icon{
+      position: absolute;
+      right: 140px;
+  }
+  .username{
+  font-size: 1rem;
+  position: absolute;
+  right: 40px;
+}
+
+.mat-drawer-container {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+  overflow: hidden;
+}
+.icons{
+margin-top: 11px;
+}
+::ng-deep .mat-tooltip {
+  font-size: 12px;
+  font-weight: 500;
+}

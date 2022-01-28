@@ -1,0 +1,61 @@
+
+<mat-form-field appearance="outline">
+  <mat-icon  matPrefix>search</mat-icon>
+  <input matInput type="search" placeholder="search here" class="search-input">
+</mat-form-field>
+<div>
+    <button mat-raised-button style=" margin: .8rem;" >Inbox</button>
+    <button mat-raised-button style=" margin: .8rem;" >Initiated</button>
+    <button mat-raised-button style=" margin: .8rem;" >Approved</button>
+    <button mat-raised-button style=" margin: .8rem" >Rejected</button>
+    <button mat-raised-button color="primary" style=" margin: .8rem;" >All</button>
+    <div class="columns">
+      <button mat-raised-button color="accent">Add</button>
+      <button mat-raised-button color="primary"  style=" margin: .8rem;" >Columns</button>
+    </div>
+  </div>
+  
+    <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container  matColumnDef="Title">
+        <th mat-header-cell  *matHeaderCellDef> Title </th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="started by ">
+        <th mat-header-cell *matHeaderCellDef> started by  </th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="creation date">
+        <th mat-header-cell *matHeaderCellDef> creation date </th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="last-updates">
+        <th mat-header-cell *matHeaderCellDef> last-updates </th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element"> {{element.website}} </td>
+      </ng-container>
+      <ng-container matColumnDef="last-update">
+        <th mat-header-cell *matHeaderCellDef> last-update </th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>id</th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element">{{element.id}}</td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Edit/Delete </th>
+        <td mat-cell style="background-color: #cfe2ff;" *matCellDef="let element">
+          <mat-icon class="blue" (click)="editUser(element)">edit</mat-icon>
+          <mat-icon class="red">delete</mat-icon>
+        </td>
+      </ng-container>
+      
+    
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+       
+    </table>
+    <!-- <app-form></app-form> -->
+
+ 

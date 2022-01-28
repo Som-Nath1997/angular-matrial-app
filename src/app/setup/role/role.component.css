@@ -1,0 +1,14 @@
+.checkbox {
+    border: ridge;
+    position: relative;
+}
+.role {
+    position: absolute;
+    top: -9px;
+    left: 8px;
+    font-size: 16px;
+   
+    padding: 0 9px;
+    background: #fff;
+    font-weight: 600;
+}
